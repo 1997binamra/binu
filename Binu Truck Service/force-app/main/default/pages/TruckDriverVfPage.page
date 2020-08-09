@@ -1,0 +1,61 @@
+<apex:page controller="InlineEditInVFController">
+    <apex:form >
+        <apex:pageBlock title="Truck Booking Information" >
+            <apex:pageBlockTable value="{!acc}" var="a" title="Results" >
+                <apex:column headerValue="Truck Booking Id">
+                    <apex:outputfield value="{!a.Name}"/>
+                </apex:column>
+                <apex:column headerValue="Account Reference">
+                    <apex:outputfield value="{!a.Account_Reference__c}"/>
+                </apex:column>
+                <apex:column headerValue="Truck">
+                    <apex:outputfield value="{!a.Truck_Name__c}"/>
+                </apex:column>
+                <apex:column headerValue="Number of Trucks Required">
+                    <apex:outputfield value="{!a.Number_of_Trucks_Required__c}"/>
+                </apex:column>
+                <apex:column headerValue="Pick Up Location">
+                    <apex:outputfield value="{!a.Pick_Up_Location__c}"/>
+                </apex:column>
+                <apex:column headerValue="Drop Location">
+                    <apex:outputfield value="{!a.Drop_Location__c}"/>
+                </apex:column>
+                 <apex:column headerValue="Truck Issue Date">
+                    <apex:outputfield value="{!a.Truck_Issue_Date__c}"/>
+                </apex:column>
+                <apex:column headerValue="Truck Give Up Date">
+                    <apex:outputfield value="{!a.Truck_Give_Up_Date__c}"/>
+                </apex:column>
+                <apex:column headerValue="Total Fare">
+                    <apex:outputfield value="{!a.Total_Fare__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!acc}" var="a" title="Results" >
+        <apex:inlineEditSupport showOnEdit="update, cancelButton" hideOnEdit="editButton" event="ondblclick" changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"></apex:inlineEditSupport>
+             <apex:column headerValue="Status Of The Booking">
+                    <apex:outputfield value="{!a.Status_Of_The_Booking__c}"/>
+                </apex:column>   
+            </apex:pageBlockTable>
+        <apex:commandButton id="update" action="{!quickUpdat}" value="Update Booking Status"></apex:commandButton>
+            </apex:pageBlock>
+        <apex:pageBlock title="Payment Information">
+            <apex:pageBlockTable value="{!acc1}" var="a" title="Results" >
+             <apex:column headerValue="Amount Paid By Customer">
+                    <apex:outputfield value="{!a.Amount_to_be_Paid__c}"/>
+                </apex:column>   
+            </apex:pageBlockTable>
+            </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!acc1}" var="a" title="Results" >
+                <apex:inlineEditSupport showOnEdit="update, cancelButton" hideOnEdit="editButton" event="ondblclick" changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"></apex:inlineEditSupport>
+                <apex:column headerValue="Payment Status">
+                    <apex:outputfield value="{!a.Payment_Status__c}"/>
+                </apex:column>   
+            </apex:pageBlockTable>
+        <apex:commandButton id="update" action="{!quickUpdate}" value="Update Payment Status"></apex:commandButton>
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+    <center><h1 style="font-size: 3em; color:blue">Welcome To The Payment Section</h1></center><br></br>
+    <div style="widows: 50%"><lightning-record-edit-form object-api-name="Payment__c" onsuccess={showSuccessToast} onsubmit ={handleSubmit}>
+        <lightning-messages>
+        </lightning-messages>
+        <lightning-input-field field-name='Truck_Booking_Id__c'></lightning-input-field>
+        <lightning-input-field field-name='Case__c'></lightning-input-field>
+        <lightning-input-field field-name='Payment_Type__c'></lightning-input-field>
+        <lightning-input-field field-name='Amount_Currency__c'></lightning-input-field>
+        <lightning-input-field field-name='Amount_to_be_Paid__c'></lightning-input-field>
+        <center><lightning-button class="slds-m-top_small" type="submit" label="Confirm Payment">
+        </lightning-button><lightning-button label="Get Payment Details" onclick={handleButton}></lightning-button></center>
+    </lightning-record-edit-form></div>
+</div>
+</template>

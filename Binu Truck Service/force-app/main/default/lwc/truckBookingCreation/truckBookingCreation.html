@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+        <center><h1 style="font-size: 3em; color:blue">Welcome To Truck Booking Section</h1><br></br></center>
+    <lightning-record-edit-form object-api-name="Truck_Booking__c" onsuccess={showSuccessToast} onsubmit ={handleSubmit}>
+        <lightning-messages>
+        </lightning-messages>
+        <lightning-input-field field-name='Account_Reference__c'></lightning-input-field>
+        <lightning-input-field field-name='Truck_Name__c'></lightning-input-field>
+        <lightning-input-field field-name='Pick_Up_Location__c'></lightning-input-field>
+        <lightning-input-field field-name='Drop_Location__c'></lightning-input-field>
+        <lightning-input-field field-name='Pick_Up_Geolocation__c'></lightning-input-field>
+        <lightning-input-field field-name='Drop_Geolocation__c'></lightning-input-field>
+        <lightning-input-field field-name='Truck_Issue_Date__c'></lightning-input-field>
+        <lightning-input-field field-name='Truck_Give_Up_Date__c'></lightning-input-field>
+        <lightning-input-field field-name='Number_of_Trucks_Required__c'></lightning-input-field>
+        <lightning-input-field field-name='Number_of_Days_for_truck_booked__c'></lightning-input-field>
+        <lightning-input-field field-name='Case__c'></lightning-input-field>
+
+        <center>
+        <lightning-button class="slds-m-top_small" type="submit" label="Confirm Booking"></lightning-button>
+        <lightning-button class="slds-m-top_small" label="Cancel" onclick={handleReset}></lightning-button>
+        <lightning-button label="Fill Up The Load Details" onclick={handleButton}></lightning-button></center>
+    </lightning-record-edit-form>
+</div>
+
+</template>

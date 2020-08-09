@@ -1,0 +1,41 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction"
+                controller="FinanciarUIClass"
+                access="global" >
+  
+    <aura:attribute name="data" type="Payment__c[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="showDetails" type="boolean" default="false" />
+    <aura:attribute name="myPayment" type="String[]" default="[Id,Name,Amount_Currency__c,Amount_to_be_Paid__c,Case__c,Initial_Amount__c,Number_of_Days_for_truck_booked__c,Number_of_Trucks_Required__c,Payment_Due__c,Payment_Status__c,Payment_Type__c,Total_Fare__c,Truck_Booking_Id__c,Truck_Give_Up_Date__c,Truck_Issue_Date__c,Truck_Name__c]" />
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+
+    <lightning:layout>
+        
+        <lightning:layoutItem size="8" padding="around-small">
+            
+            <lightning:card title="All Payment Record List">
+                <lightning:datatable
+                                     columns="{! v.columns }"
+                                     data="{! v.data }"
+                                     keyField="id"
+                                     onsave ="{!c.onSave}"
+                                     hideCheckboxColumn="true"
+                                     onrowaction="{! c.handleRowAction }" />
+            </lightning:card>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4" padding="around-small">
+            <aura:if isTrue="{!v.showDetails}">
+                <lightning:card title="Record Detail">
+                    <lightning:recordForm
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Payment__c"
+                                          fields="{!v.myPayment}"
+                                          columns="2"
+                                          mode="view" />
+                </lightning:card>
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+        <lightning:button variant="brand-outline" label="Go To Payment Object" title="Payment" onclick="{! c.handleClick }" />
+</aura:component>

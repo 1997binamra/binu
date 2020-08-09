@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+    <center><h1 style="font-size: 3em; color:blue">Load The Truck With Pleasure</h1><br></br>
+    <div style="width: 50%;"><lightning-record-edit-form object-api-name="Truck_Load__c" onsuccess={showSuccessToast} onsubmit ={handleSubmit}>
+        <lightning-messages>
+        </lightning-messages>
+        <lightning-input-field field-name='Truck_Booking_Id__c'></lightning-input-field>
+        <lightning-input-field field-name='Number_of_Load_Items__c'></lightning-input-field>
+        <lightning-input-field field-name='Items_To_be_Load__c'></lightning-input-field>
+        <lightning-input-field field-name='Load_Measure_Unit__c'></lightning-input-field>
+        <lightning-input-field field-name='Approximate_Weight_To_be_Loaded__c'></lightning-input-field>
+        <center><lightning-button class="slds-m-top_small" type="submit" label="Confirm Truck Load">
+        </lightning-button><lightning-button label="Go To Payment" onclick={handleButton}></lightning-button></center>
+    </lightning-record-edit-form></div></center>
+</div>
+</template>

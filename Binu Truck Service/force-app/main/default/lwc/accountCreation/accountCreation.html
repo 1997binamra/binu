@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>
+        <lightning-record-form object-api-name={orderObject} layout-type="Full" columns="3" onsuccess={showSuccessToast}>
+
+        </lightning-record-form>
+        <br/>
+    <center><h1 style="font-size: 1em">-----Please Fill Up The Contact Details Also-----</h1><br/>
+    <lightning-button label="Create Contact" onclick={handleButton}></lightning-button></center>
+        
+    </lightning-card>
+    
+</template>

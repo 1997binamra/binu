@@ -1,0 +1,62 @@
+<apex:page showHeader="true" renderAs="PDF" controller="Redirect_Main">
+   <center><h1 style="font-size: 2em;">
+       Overall Document
+       </h1></center>
+    <div style="
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;">
+    <apex:form >
+        <br/><br/><br/>
+        <center><div style="font-size: 2em; color:blue">
+            Truck Booking Detail
+            </div></center><br/>
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!accs}" var="a" border="1px" cellpadding="7px" >
+                <apex:column value="{!a.Truck_Booking_Id__c}" />
+                <apex:column value="{!a.Truck_Name__c}" />
+                <apex:column value="{!a.Pick_Up_Location__c}" />
+                <apex:column value="{!a.Drop_Location__c}" />
+                <apex:column value="{!a.Truck_Issue_Date__c}" />
+                <apex:column value="{!a.Truck_Give_Up_Date__c}" />
+                <apex:column value="{!a.Total_Fare__c}" />
+                <apex:column value="{!a.Number_of_Trucks_Required__c}" />
+                <apex:column value="{!a.Number_of_Days_for_truck_booked__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock><br/><br/><br/>
+        <center><div style="font-size: 2em; color:blue">
+            Payment Details
+            </div></center><br/>
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!accs}" var="a" border="1px" cellpadding="15px" align="center">
+                <apex:column value="{!a.Name}" />
+                <apex:column value="{!a.Payment_Type__c}"/>
+                <apex:column value="{!a.Initial_Amount__c}" />
+                <apex:column value="{!a.Amount_to_be_Paid__c}"/>
+                <apex:column value="{!a.Payment_Due__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/><br/><br/><br/><br/><br/><br/><br/>
+        
+        <ul>
+  <li>All the Payments will be done Offline.</li>
+  <li>Any kind of misconduct from Truck driver, please feel free to report.</li>
+  <li>Please end the trip once it is completed.</li>
+            <li>Cheques / DDs are subject to realisation.</li>
+            <li>Check the Money Receipt before leaving the counter</li>
+            <li>This is a computer genarated receipt and doesn't require signature.
+</li>
+</ul>
+       <center> <div style="color:blue">
+            Safe Travels!
+        </div>
+           </center>
+    </apex:form>
+    
+    </div>
+</apex:page>
